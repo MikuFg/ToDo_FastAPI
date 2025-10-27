@@ -2,11 +2,16 @@
     "1": {
         "shortname": "string",
         "description": "string",
-        "iscompleted": false
+        "iscompleted": true
     },
     "2": {
         "shortname": "task2",
         "description": "maybe something",
         "iscompleted": true
+    },
+    "3": {
+        "shortname": "task3",
+        "description": "add func to delete task",
+        "iscompleted": false
     }
 }

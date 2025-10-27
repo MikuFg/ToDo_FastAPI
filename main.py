@@ -14,7 +14,6 @@ def get_all_tasks(file):
     except Exception as e:
         return {}
 
-    print(data)
     return data
 
 
@@ -67,12 +66,31 @@ def update_status(id, file):
     return "All good"
 
 
+def sorted_tasks(status: bool):
+    data = get_all_tasks(json_file)
+
+    sorted_data = {}
+
+    for key, values in data.items():
+        if values["iscompleted"] == status:
+            sorted_data[key] = values
+
+    return sorted_data
+
 
 @app.get('/tasks')
 async def tasks():
     data = get_all_tasks(json_file)
 
     return {"Result": data}
+
+
+@app.get('/tasks/{status}')
+async def sortTasks(status: bool):
+    data = sorted_tasks(status)
+
+    return data
+
 
 @app.post('/addTask')
 async def new_task(insert_data: Task):
