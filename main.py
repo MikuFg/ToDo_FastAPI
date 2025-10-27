@@ -21,7 +21,16 @@ def get_all_tasks(file):
 def add_task(file, new_task: Task):
     data = get_all_tasks(json_file)
 
-    data[new_task.id] = {"shortname":new_task.shortname, "description":new_task.description, "iscompleted":new_task.iscompleted}
+    cur_id = 1
+
+    if data == {}:
+        cur_id = 1
+    else:
+        for key in data.keys():
+            cur_id += 1
+
+
+    data[cur_id] = {"shortname":new_task.shortname, "description":new_task.description, "iscompleted":new_task.iscompleted}
 
     try:
         with open(file, 'w', encoding='UTF-8') as f:
@@ -38,15 +47,11 @@ def update_status(id, file):
 
     if data == {}:
         return "No task was added("
-    
-    print(data)
 
     for key, values in data.items():
         if key == id:
-            print(values)
 
             if values["iscompleted"] == False:
-                print(1)
                 values["iscompleted"] = True
 
             else:

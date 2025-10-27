@@ -1,7 +1,12 @@
 {
-    "0": {
+    "1": {
         "shortname": "string",
         "description": "string",
+        "iscompleted": false
+    },
+    "2": {
+        "shortname": "task2",
+        "description": "maybe something",
         "iscompleted": true
     }
 }
