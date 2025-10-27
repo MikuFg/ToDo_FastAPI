@@ -1,8 +1,7 @@
-[
-    {
-        "id": 1,
-        "shortname": "task1",
-        "description": "todo",
-        "iscompleted": false
+{
+    "0": {
+        "shortname": "string",
+        "description": "string",
+        "iscompleted": true
     }
-]
+}

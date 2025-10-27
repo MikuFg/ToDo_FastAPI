@@ -1,7 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class Task(BaseModel):
     id: int
     shortname: str
     description: str
-    iscompleted: bool = False
+    iscompleted: bool = Field(default = False)
