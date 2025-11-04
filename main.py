@@ -83,9 +83,16 @@ def delete_task(id: int, file):
 
     task = data.pop(id)
 
+    values = list(data.values())
+
+    new_data = {}
+
+    for id in range(len(data.keys())):
+        new_data[id + 1] = values[id]
+
     try:
         with open(file, 'w', encoding='UTF-8') as f:
-            json.dump(data, f, ensure_ascii = False, indent = 4)
+            json.dump(new_data, f, ensure_ascii = False, indent = 4)
 
     except Exception as e:
         return e

@@ -1,27 +1,17 @@
 {
     "1": {
-        "shortname": "task2",
-        "description": "maybe something",
-        "iscompleted": true
-    },
-    "2": {
         "shortname": "task3",
         "description": "add func to delete task",
         "iscompleted": true
     },
-    "3": {
+    "2": {
         "shortname": "Add features for auto index",
         "description": "Сделать чтобы при удалении задачи восстанавливалась нумерация",
-        "iscompleted": false
+        "iscompleted": true
     },
-    "4": {
-        "shortname": "taskkkk",
-        "description": "dfg",
-        "iscompleted": false
-    },
-    "5": {
-        "shortname": "tdsf",
-        "description": "sdf",
+    "3": {
+        "shortname": "taskqweфыв",
+        "description": "проба2",
         "iscompleted": false
     }
 }
