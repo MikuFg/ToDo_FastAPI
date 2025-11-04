@@ -78,6 +78,21 @@ def sorted_tasks(status: bool):
     return sorted_data
 
 
+def delete_task(id: int, file):
+    data = get_all_tasks(json_file)
+
+    task = data.pop(id)
+
+    try:
+        with open(file, 'w', encoding='UTF-8') as f:
+            json.dump(data, f, ensure_ascii = False, indent = 4)
+
+    except Exception as e:
+        return e
+
+    return {"Result":f"task {task} was deleted successdul!"}
+
+
 @app.get('/tasks')
 async def tasks():
     data = get_all_tasks(json_file)
@@ -104,6 +119,13 @@ async def taskUpdate(task_id):
     update_status(task_id, json_file)
 
     return{"Result":"All good!"}
+
+
+@app.delete('/taskDelete/{taskId}')
+async def taskDelete(taskId):
+    delete_task(taskId, json_file)
+
+    return {"Result":"All good!"}
     
 
 
