@@ -32,7 +32,7 @@ def add_task(file, new_task: Task):
     data[cur_id] = {"shortname":new_task.shortname, "description":new_task.description, "iscompleted":new_task.iscompleted}
 
     try:
-        with open(file, 'w', encoding='UTF-8') as f:
+        with open(file, 'w+', encoding='UTF-8') as f:
             json.dump(data, f, ensure_ascii = False, indent = 4)
 
     except Exception as e:
@@ -57,7 +57,7 @@ def update_status(id, file):
                 values["iscompleted"] = False
 
             try:
-                with open(file, 'w', encoding='UTF-8') as f:
+                with open(file, 'w+', encoding='UTF-8') as f:
                     json.dump(data, f, ensure_ascii = False, indent = 4)
 
             except Exception as e:
@@ -91,7 +91,7 @@ def delete_task(id: int, file):
         new_data[id + 1] = values[id]
 
     try:
-        with open(file, 'w', encoding='UTF-8') as f:
+        with open(file, 'w+', encoding='UTF-8') as f:
             json.dump(new_data, f, ensure_ascii = False, indent = 4)
 
     except Exception as e:
